@@ -13,7 +13,8 @@ public class Main {
 			aMaze.drawWallWithID();
 			aMaze.drawWall();
 		}
-		
+		aMaze.finalizeMaze();
+		aMaze.drawWall();
 
 	}
 

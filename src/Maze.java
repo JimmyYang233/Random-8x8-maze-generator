@@ -60,13 +60,26 @@ public class Maze {
 				maze[currentRow][i].hasRightWall = true;
 			}
 			else{
-				maze[currentRow][i+1].id = maze[currentRow][i].id;
+				int idToChange = maze[currentRow][i+1].id;
+				for(int j = 0;j<8;j++) {
+					if(maze[currentRow][j].id ==idToChange) {
+						maze[currentRow][j].id = maze[currentRow][i].id;
+					}
+				}
+				
 			}
 		}
-		if(currentRow==7){
-			for(int i = 0;i<7;i++){
-				if(maze[currentRow][i].id != maze[currentRow][i+1].id&&(maze[currentRow][i].hasRightWall)){
-					maze[currentRow][i].hasRightWall = false;
+	}
+	
+	public void finalizeMaze() {
+		for(int i = 0;i<7;i++){
+			if(maze[currentRow][i].id != maze[currentRow][i+1].id&&(maze[currentRow][i].hasRightWall)){
+				maze[currentRow][i].hasRightWall = false;
+				int idToChange = maze[currentRow][i+1].id;
+				for(int j = 0;j<8;j++) {
+					if(maze[currentRow][j].id ==idToChange) {
+						maze[currentRow][j].id = maze[currentRow][i].id;
+					}
 				}
 			}
 		}
